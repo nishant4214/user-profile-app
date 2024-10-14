@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 
 import './UserProfile.css';
+import profilePic from './images/Tenant_669_org_752_user_21030540_IMG_20240924_103849.jpg'
 import {
   Container,
   TextField,
@@ -20,7 +21,7 @@ const UserProfile = () => {
     email: 'nishant.pande@esds.co.in',
     phone: '708 385 1078',
     address: '7, Lok Kalyan Marg (7LKM), formerly 7, Race Course Road, Lok Kalyan Marg, New Delhi',
-    bio: 'Nishant is a passionate React developer with over [3 years] of experience in building dynamic and responsive web applications. With a strong foundation in JavaScript and a keen eye for user experience, he specializes in creating seamless interfaces and engaging user interactions.'
+    bio: 'Nishant is a passionate React developer with over 3 years of experience in building dynamic and responsive web applications. With a strong foundation in JavaScript and a keen eye for user experience, he specializes in creating seamless interfaces and engaging user interactions.'
     +'Having worked on various projects ranging from small startups to large-scale enterprise applications, Nishant is adept at collaborating with cross-functional teams to deliver high-quality solutions. He is proficient in modern front-end technologies, including React, Redux, and Tailwind CSS, and is always eager to learn about the latest trends and best practices in the web development ecosystem.'
     +'In addition to his technical skills, Nishant values clean code and performance optimization, ensuring that applications are not only functional but also efficient and maintainable. He enjoys tackling challenges and solving complex problems, making him a reliable asset in any development team.'
     +'Outside of coding, Nishant is an avid contributor to the developer community, participating in meetups and open-source projects. He also loves sharing knowledge through blogs and tutorials, helping others navigate the world of React development.',
@@ -42,7 +43,7 @@ const UserProfile = () => {
         <Box display="flex" flexDirection="column" alignItems="center">
           <Avatar
             sx={{ width: 200, height: 200, mb: 2 }}
-            src="https://via.placeholder.com/100"
+            src={profilePic}
             alt={userData.name}
           />
           <Typography variant="h4" align="center" gutterBottom>
