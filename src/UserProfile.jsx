@@ -15,14 +15,9 @@ import {
   Box,
   IconButton
 } from '@mui/material';
-import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import  { timelineItemClasses } from '@mui/lab/TimelineItem';
 
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineDot from '@mui/lab/TimelineDot';
+import Experience from './Expericence';
+import Contact from './Contact';
 const UserProfile = () => {
   const [userData, setUserData] = useState({
     name: 'Nishant Pande',
@@ -30,6 +25,8 @@ const UserProfile = () => {
     email: 'nishant.pande@esds.co.in',
     company : 'ESDS Software Solutions',
     phone: '+91 708 385 1078',
+    linkedIn : "https://www.linkedin.com/in/nishant-pande-50220068/",
+    instagram : "https://www.instagram.com/nish_4214/profilecard/?igsh=aWM5MGcxd3g4bXNl",
     address: '7, Lok Kalyan Marg (7LKM), formerly 7, Race Course Road, Lok Kalyan Marg, New Delhi',
     bio: 'Nishant is a passionate React developer with over 3 years of experience in building dynamic and responsive web applications. With a strong foundation in JavaScript and a keen eye for user experience, he specializes in creating seamless interfaces and engaging user interactions.'
     +'Having worked on various projects ranging from small startups to large-scale enterprise applications, Nishant is adept at collaborating with cross-functional teams to deliver high-quality solutions. He is proficient in modern front-end technologies, including React, Redux, and Tailwind CSS, and is always eager to learn about the latest trends and best practices in the web development ecosystem.'
@@ -63,7 +60,10 @@ const UserProfile = () => {
         location : "Nashik",
         employmentType : "Regular"	
       },
-    ]
+    ],
+    frontendSkills : "ReactJS, Html, CSS, Jquery, Bootstrap 5, AJAX",
+    backendSkills : "Rest API, DOT NET Core, Microservices, SQL, PostgreSql",
+    otherSkills : "NGINX, IIS, GIT, Azure"
   });
   const sortedExperiences = userData.experience.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
 
@@ -97,48 +97,26 @@ const UserProfile = () => {
         <Grid2 container spacing={2}>
           <Grid2  size={12}  spacing={2}>
             <Typography variant="h4" align="left" gutterBottom>
-              About
+              About Me
             </Typography>
-            <TextField
-              label="Bio"
-              name="bio"
-              value={userData.bio}
-              onChange={handleChange}
-              fullWidth
-              multiline
-              rows={4}
-              disabled={!isEditing}
-            />
-          </Grid2>
-          <Grid2  size={6}  spacing={2}>
-            <TextField
-              label="Email"
-              name="email"
-              value={userData.email}
-              onChange={handleChange}
-              fullWidth
-              disabled={!isEditing}
-            />
-          </Grid2>
-          <Grid2  size={6} spacing={2}>
-            <TextField
-              label="Phone"
-              name="phone"
-              value={userData.phone}
-              onChange={handleChange}
-              fullWidth
-              disabled={!isEditing}
-            />
-          </Grid2>
-          <Grid2  size={12}  spacing={2}>
-            <TextField
-              label="Address"
-              name="address"
-              value={userData.address}
-              onChange={handleChange}
-              fullWidth
-              disabled={!isEditing}
-            />
+            <Typography variant="h7" align="center" gutterBottom>
+              {userData.bio}
+            </Typography>
+            <br/><br/>
+            <Typography variant="h4" align="left" gutterBottom>
+              Skills
+            </Typography>
+            <Typography variant="h7" align="center" gutterBottom>
+              Frontend : {userData.frontendSkills}
+            </Typography>  
+            <br/>
+            <Typography variant="h7" align="center" gutterBottom>
+              Backend : {userData.backendSkills}
+            </Typography> 
+            <br/>
+            <Typography variant="h7" align="center" gutterBottom>
+              Other : {userData.otherSkills}
+            </Typography>             
           </Grid2>
           <Grid2  size={12}  spacing={2}>
             <Box display="flex" justifyContent="center" spacing={2}>
@@ -170,27 +148,9 @@ const UserProfile = () => {
         </Grid2>
       </Paper>
       <br/>
-      <Paper elevation={3} style={{ padding: '20px' }}>
-        <Typography variant="h4" align="left" gutterBottom>
-            Experience
-        </Typography>
-        <Timeline  sx={{
-        [`& .${timelineItemClasses.root}:before`]: {
-          flex: 0,
-          padding: 0,
-        },
-      }}>
-        {sortedExperiences.map((experience, index) => (
-          <TimelineItem key={index}>
-            <TimelineSeparator>
-              <TimelineDot  color="success"/>
-                <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent><h7 style={{fontWeight:'bold'}}>{experience.designation} @ {experience.company} </h7><br/> {experience.startDate} - {experience.endDate} <br/> Location : {experience.location} <br/>  ({experience.employmentType})</TimelineContent>
-                </TimelineItem>
-          ))}
-        </Timeline>
-      </Paper>
+      <Experience sortedExperiences={sortedExperiences}/>
+      <br/>
+      <Contact Contact={userData}/>
     </Container>
   );
 };
