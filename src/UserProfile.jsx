@@ -186,11 +186,10 @@ const UserProfile = () => {
               <TimelineDot  color="success"/>
                 <TimelineConnector />
                   </TimelineSeparator>
-                  <TimelineContent>{experience.company}</TimelineContent>
+                  <TimelineContent>{experience.company} ({experience.location})</TimelineContent>
                   <TimelineContent>{experience.designation}</TimelineContent>
                   <TimelineContent>{experience.employmentType}</TimelineContent>
                   <TimelineContent>{experience.startDate} - {experience.endDate}</TimelineContent>
-                  <TimelineContent>{experience.location}</TimelineContent>
                 </TimelineItem>
           ))}
         </Timeline>
