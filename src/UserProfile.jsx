@@ -186,10 +186,7 @@ const UserProfile = () => {
               <TimelineDot  color="success"/>
                 <TimelineConnector />
                   </TimelineSeparator>
-                  <TimelineContent>{experience.company} ({experience.location})</TimelineContent>
-                  <TimelineContent>{experience.designation}</TimelineContent>
-                  <TimelineContent>{experience.employmentType}</TimelineContent>
-                  <TimelineContent>{experience.startDate} - {experience.endDate}</TimelineContent>
+                  <TimelineContent><h7 style={{fontWeight:'bold'}}>{experience.designation} @ {experience.company} </h7><br/> {experience.startDate} - {experience.endDate} <br/> Location : {experience.location} <br/>  ({experience.employmentType})</TimelineContent>
                 </TimelineItem>
           ))}
         </Timeline>
