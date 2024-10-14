@@ -1,6 +1,4 @@
-// src/UserProfile.js
-
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 import './UserProfile.css';
 import profilePic from './images/Nishant Pande.jpg'
@@ -18,6 +16,7 @@ import {
 
 import Experience from './Expericence';
 import Contact from './Contact';
+
 const UserProfile = () => {
   const [userData, setUserData] = useState({
     name: 'Nishant Pande',
@@ -25,8 +24,10 @@ const UserProfile = () => {
     email: 'nishant.pande@esds.co.in',
     company : 'ESDS Software Solutions',
     phone: '+91 708 385 1078',
+    whatsApp : "https://wa.me/7083851078",
     linkedIn : "https://www.linkedin.com/in/nishant-pande-50220068/",
     instagram : "https://www.instagram.com/nish_4214/profilecard/?igsh=aWM5MGcxd3g4bXNl",
+    githubId : "https://github.com/nishant4214",
     address: '7, Lok Kalyan Marg (7LKM), formerly 7, Race Course Road, Lok Kalyan Marg, New Delhi',
     bio: 'Nishant is a passionate React developer with over 3 years of experience in building dynamic and responsive web applications. With a strong foundation in JavaScript and a keen eye for user experience, he specializes in creating seamless interfaces and engaging user interactions.'
     +'Having worked on various projects ranging from small startups to large-scale enterprise applications, Nishant is adept at collaborating with cross-functional teams to deliver high-quality solutions. He is proficient in modern front-end technologies, including React, Redux, and Tailwind CSS, and is always eager to learn about the latest trends and best practices in the web development ecosystem.'
