@@ -59,7 +59,7 @@ function Contact({Contact}) {
 
     return (
         <Paper elevation={3} style={{ padding: '20px' }}>
-            <Typography variant="h4" align="left" gutterBottom>
+            <Typography color='blue' variant="h4" align="left" gutterBottom>
                 Contact
             </Typography>
             <Typography variant="h7" align="center" gutterBottom>
