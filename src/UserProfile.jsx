@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 
 import Experience from './Expericence';
+import Education from './Education'
 import Contact from './Contact';
 
 const UserProfile = () => {
@@ -62,11 +63,41 @@ const UserProfile = () => {
         employmentType : "Regular"	
       },
     ],
+    education : [
+      {
+        institute : "Muktanand Madhyamik Vidyalaya, New Cidco, Nashik",
+        university : "Maharashtra State Board SSC",
+        startDate : "Jun 2011",
+        endDate : "Jun 2012",
+        course : "SSC",
+        grade : "76.20%",
+        educationType : "Full time"	
+      },
+      {
+        institute : "Govt. Polytechnic Vikramgad, Palghar",
+        university : "MSBTE",
+        startDate : "Jul 2012",
+        endDate : "Jun 2017",
+        course : "Diploma in Computer Engineering",
+        grade : "64.75",
+        educationType : "Full time"	
+      },
+      {
+        institute : "Pune Vidyarthi Griha's College of Engineering & S. S. Dhamankar Institute of Management, Nashik",
+        university : "Savitribai Phule Pune University",
+        startDate : "Aug 2017",
+        endDate : "Jun 2021",
+        course : "B.E. Computer",
+        grade : "7.08 CGPA",
+        educationType : "Full time"	
+      }
+    ],
     frontendSkills : "ReactJS, Html, CSS, Jquery, Bootstrap 5, AJAX",
     backendSkills : "Rest API, DOT NET Core, Microservices, SQL, PostgreSql",
     otherSkills : "NGINX, IIS, GIT, Azure"
   });
   const sortedExperiences = userData.experience.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
+  const sortedEducations = userData.education.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -150,6 +181,8 @@ const UserProfile = () => {
       </Paper>
       <br/>
       <Experience sortedExperiences={sortedExperiences}/>
+      <br/>
+      <Education sortedEducations={sortedEducations}/>
       <br/>
       <Contact Contact={userData}/>
     </Container>

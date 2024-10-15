@@ -31,16 +31,16 @@ function Contact({ Contact }) {
         fetchVisitorCount(); // Refresh the count
     };
 
+    const hasIncremented = localStorage.getItem('hasIncremented');
 
     useEffect(() => {
         fetchVisitorCount(); // Get the current count when the component mounts
-        const hasIncremented = localStorage.getItem('hasIncremented');
 
         if (!hasIncremented) {
             incrementVisitorCount(); // Increment count only if not done already
             localStorage.setItem('hasIncremented', 'true'); // Mark that the increment has occurred
         }
-    }, []); // Dependency array with hasIncremented
+    }, [hasIncremented]); // Dependency array with hasIncremented
 
 
     return (
