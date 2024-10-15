@@ -11,9 +11,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
-function Contact() {
+function Contact({Contact}) {
     const [visitorCount, setVisitorCount] = useState(0);
-    const [hasIncremented, setHasIncremented] = useState(false);
 
     const fetchVisitorCount = async () => {
         try {

@@ -17,6 +17,7 @@ import {
 import Experience from './Expericence';
 import Education from './Education'
 import Contact from './Contact';
+import DownloadResumeIcon from './DownloadResume';
 
 const UserProfile = () => {
   const [userData, setUserData] = useState({
@@ -128,14 +129,14 @@ const UserProfile = () => {
         </Box>  
         <Grid2 container spacing={2}>
           <Grid2  size={12}  spacing={2}>
-            <Typography variant="h4" align="left" gutterBottom>
+            <Typography color='blue' variant="h4" align="left" gutterBottom>
               About Me
             </Typography>
             <Typography variant="h7" align="center" gutterBottom>
               {userData.bio}
             </Typography>
             <br/><br/>
-            <Typography variant="h4" align="left" gutterBottom>
+            <Typography color='blue' variant="h4" align="left" gutterBottom>
               Skills
             </Typography>
             <Typography variant="h7" align="center" gutterBottom>
@@ -148,7 +149,11 @@ const UserProfile = () => {
             <br/>
             <Typography variant="h7" align="center" gutterBottom>
               Other : {userData.otherSkills}
-            </Typography>             
+            </Typography>   
+            <br/>
+            <Typography variant="h7" align="left" gutterBottom>
+              Resume <DownloadResumeIcon/>
+            </Typography>          
           </Grid2>
           <Grid2  size={12}  spacing={2}>
             <Box display="flex" justifyContent="center" spacing={2}>

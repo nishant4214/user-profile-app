@@ -15,8 +15,8 @@ import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 function Experience({sortedExperiences}){
    return ( 
     <Paper elevation={3} style={{ padding: '20px' }}>
-        <Typography variant="h4" align="left" gutterBottom>
-            Experience
+        <Typography color='blue' variant="h4" align="left" gutterBottom>
+            Work Experience
         </Typography>
         <Timeline  sx={{
         [`& .${timelineItemClasses.root}:before`]: {

@@ -14,7 +14,7 @@ import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 function Education({sortedEducations}){
    return ( 
     <Paper elevation={3} style={{ padding: '20px' }}>
-        <Typography variant="h4" align="left" gutterBottom>
+        <Typography color='blue' variant="h4" align="left" gutterBottom>
             Education
         </Typography>
         <Timeline  sx={{
