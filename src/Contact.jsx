@@ -15,13 +15,13 @@ function Contact({ Contact }) {
     const [visitorCount, setVisitorCount] = useState(0);
 
     const fetchVisitorCount = async () => {
-        const response = await fetch('http://localhost:5000/api/visitor-count');
+        const response = await fetch('https://profile-api-nishant.netlify.app/.netlify/functions/getVisitorCount');
         const data = await response.json();
         setVisitorCount(data.count);
     };
 
     const incrementVisitorCount = async () => {
-        await fetch('http://localhost:5000/api/visitor-count', {
+        await fetch('https://profile-api-nishant.netlify.app/.netlify/functions/incrementVisitorCount', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
