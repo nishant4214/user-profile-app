@@ -11,37 +11,52 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
-function Contact({ Contact }) {
+function Contact() {
     const [visitorCount, setVisitorCount] = useState(0);
+    const [hasIncremented, setHasIncremented] = useState(false);
 
     const fetchVisitorCount = async () => {
-        const response = await fetch('https://profile-api-nishant.netlify.app/.netlify/functions/getVisitorCount');
-        const data = await response.json();
-        setVisitorCount(data.count);
+        try {
+            const response = await fetch('https://profile-api-nishant.netlify.app/.netlify/functions/getVisitorCount');
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status} ${response.statusText}`);
+            }
+            const data = await response.json();
+            setVisitorCount(data.count);
+        } catch (error) {
+            console.error('Failed to fetch visitor count:', error);
+        }
     };
 
     const incrementVisitorCount = async () => {
-        await fetch('https://profile-api-nishant.netlify.app/.netlify/functions/incrementVisitorCount', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({}),
-        });
-        fetchVisitorCount(); // Refresh the count
+        try {
+            const response = await fetch('https://profile-api-nishant.netlify.app/.netlify/functions/incrementVisitorCount', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({}),
+            });
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status} ${response.statusText}`);
+            }
+            fetchVisitorCount(); // Refresh the count
+        } catch (error) {
+            console.error('Failed to increment visitor count:', error);
+        }
     };
-
-    const hasIncremented = localStorage.getItem('hasIncremented');
 
     useEffect(() => {
         fetchVisitorCount(); // Get the current count when the component mounts
 
+        // Check if the visitor count has been incremented in this session
+        const hasIncremented = sessionStorage.getItem('hasIncremented');
+
         if (!hasIncremented) {
             incrementVisitorCount(); // Increment count only if not done already
-            localStorage.setItem('hasIncremented', 'true'); // Mark that the increment has occurred
+            sessionStorage.setItem('hasIncremented', 'true'); // Mark that the increment has occurred in this session
         }
-    }, [hasIncremented]); // Dependency array with hasIncremented
-
+    }, []); // Empty dependency array to run once on mount
 
     return (
         <Paper elevation={3} style={{ padding: '20px' }}>
