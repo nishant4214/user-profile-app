@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CommentsSection.css'
+import { Paper, Box, Typography } from '@mui/material';
 
 const CommentsSection = ({ projectId }) => {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState('');
 
+  const fetchComments = async () => {
+    const response = await axios.get(`https://profile-api-nishant.netlify.app/.netlify/functions/Comments?projectId=${projectId}`);
+    setComments(response.data);
+  };
+
   useEffect(() => {
     // Fetch comments when the component mounts
-    const fetchComments = async () => {
-      const response = await axios.get(`https://profile-api-nishant.netlify.app/.netlify/functions/Comments?projectId=${projectId}`);
-      setComments(response.data);
-    };
-
+  
     fetchComments();
   }, [projectId]);
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
+
     const newComment = { projectId, userId: 1, commentText:commentText };
     try 
     {
@@ -33,6 +36,8 @@ const CommentsSection = ({ projectId }) => {
         const data = await response.json();
         setComments([...comments, data.comment]); // Update state
         setCommentText(''); // Clear input
+        fetchComments(); // Fetch updated comments after submitting
+
     } catch (error) {
         console.error('Error submitting comment:', error);
         alert('Failed to submit comment. Please try again.');
@@ -40,26 +45,33 @@ const CommentsSection = ({ projectId }) => {
   };
 
   return (
-    <div className="comments-section">
-    <h3>Comments</h3>
-    <form className="comment-form" onSubmit={handleCommentSubmit}>
-      <textarea
-        value={commentText}
-        onChange={(e) => setCommentText(e.target.value)}
-        placeholder="Leave a comment"
-        required
-      />
-      <button type="submit">Submit</button>
-    </form>
-    <ul className="comments-list">
-      {comments.map((comment, index) => (
-        <li key={index}>
-          <strong>{comment.users?.username || 'Unknown User'}</strong>: {comment.comment_text}
-        </li>
-      ))}
-    </ul>
+    <Paper elevation={3} style={{ padding: '20px' }}>
+      <Typography color='blue' variant="h4" align="left" gutterBottom>
+        Comments
+      </Typography>
+        <Box sx={{ overflowX: 'scroll' }}>
 
-  </div>
+            <form className="comment-form" onSubmit={handleCommentSubmit}>
+              <textarea
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
+                placeholder="Leave a comment"
+                required
+              />
+              <button type="submit">Submit</button>
+            </form>
+            <ul className="comments-list">
+            {comments
+              .slice() // Create a shallow copy of the comments array
+              .reverse() // Reverse the order of the comments
+              .map((comment, index) => (
+                <li key={index}>
+                  <strong>{comment.users?.username || 'Unknown User'}</strong>: {comment.comment_text || comment}
+                </li>
+              ))}
+          </ul>
+      </Box>
+  </Paper>
   );
 };
 
