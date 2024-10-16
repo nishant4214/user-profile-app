@@ -21,6 +21,7 @@ import Contact from './Contact';
 import DownloadResumeIcon from './DownloadResume';
 import Projects from './Projects';
 import Courses from './Courses';
+import CommentsSection from './CommentsSection';
 const UserProfile = () => {
   const [userData, setUserData] = useState(profileJson);
   const sortedExperiences = userData.experience.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
@@ -121,6 +122,7 @@ const UserProfile = () => {
       <br/>
       <Education sortedEducations={sortedEducations}/>
       <br/>
+      <CommentsSection projectId={1}/>
       <Contact Contact={userData}/>
 
     </Container>
