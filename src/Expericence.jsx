@@ -13,6 +13,7 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 
 function Experience({sortedExperiences}){
+    const arrSortedExperiences = [...sortedExperiences];
    return ( 
     <Paper elevation={3} style={{ padding: '20px' }}>
         <Typography color='blue' variant="h4" align="left" gutterBottom>
@@ -23,11 +24,20 @@ function Experience({sortedExperiences}){
         flex: 0,
         padding: 0,
         },
-    }}>
+    }}> 
         {sortedExperiences.map((experience, index) => (
         <TimelineItem key={index}>
             <TimelineSeparator>
-            <TimelineDot  color="success"><WorkHistoryIcon /></TimelineDot>
+            <TimelineDot color='success'>
+                {/* <WorkHistoryIcon /> */}
+                <img
+                    srcSet={`${experience.logo} 8x`} // Using Base64 image for high resolution
+                    src={experience.logo} // Using Base64 image
+                    loading="lazy"
+                    style={{ borderRadius: '50%', width: '50px', height: '50px', objectFit: 'cover' }} // Adjust width and height as needed
+
+                    />
+                </TimelineDot>
             
                 <TimelineConnector />
                 </TimelineSeparator>

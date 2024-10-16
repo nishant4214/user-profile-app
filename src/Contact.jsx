@@ -48,14 +48,13 @@ function Contact({Contact}) {
     useEffect(() => {
         fetchVisitorCount(); // Get the current count when the component mounts
 
-        // Check if the visitor count has been incremented in this session
         const hasIncremented = sessionStorage.getItem('hasIncremented');
 
         if (!hasIncremented) {
-            incrementVisitorCount(); // Increment count only if not done already
-            sessionStorage.setItem('hasIncremented', 'true'); // Mark that the increment has occurred in this session
+            incrementVisitorCount(); 
+            sessionStorage.setItem('hasIncremented', 'true');
         }
-    }, []); // Empty dependency array to run once on mount
+    }, [])
 
     return (
         <Paper elevation={3} style={{ padding: '20px' }}>
@@ -73,27 +72,27 @@ function Contact({Contact}) {
             <Grid2 container spacing={2}>
                 <Grid2 item xs={4} md={4}>
                     <a href={Contact.instagram} target="_blank" rel="noopener noreferrer">
-                        <InstagramIcon />
+                        <InstagramIcon fontSize='large' />
                     </a>
                 </Grid2>
                 <Grid2 item xs={4} md={4}>
                     <a href={`mailto:${Contact.email}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <EmailIcon style={{ marginRight: 8, cursor: 'pointer' }} />
+                        <EmailIcon fontSize='large' style={{ marginRight: 8, cursor: 'pointer' }} />
                     </a>
                 </Grid2>
                 <Grid2 item xs={4} md={4}>
                     <a href={Contact.linkedIn} target="_blank" rel="noopener noreferrer">
-                        <LinkedInIcon />
+                        <LinkedInIcon fontSize='large' />
                     </a>
                 </Grid2>
                 <Grid2 item xs={4} md={4}>
                     <a href={Contact.githubId} target="_blank" rel="noopener noreferrer">
-                        <GitHubIcon />
+                        <GitHubIcon fontSize='large' />
                     </a>
                 </Grid2>
                 <Grid2 item xs={4} md={4}>
                     <a href={Contact.whatsApp} target="_blank" rel="noopener noreferrer">
-                        <WhatsAppIcon />
+                        <WhatsAppIcon fontSize='large' />
                     </a>
                 </Grid2>
                 <Grid2 item xs={4} md={4}>
