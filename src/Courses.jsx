@@ -3,8 +3,6 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { Paper, Box, Typography } from '@mui/material';
-import fundamentalsPng from './images/fundamentals.png';
-import databasesPng from './images/databases.png'
 const itemData = [
  
 ];
@@ -16,15 +14,16 @@ export default function Courses({Courses}) {
         Courses
       </Typography>
       <Box sx={{ overflowX: 'scroll' }}>
-        <ImageList variant="masonry" cols={3} gap={8}>
+        <ImageList variant="masonry" cols={2} gap={8}>
           {Courses.map((item) => (
             <ImageListItem key={item.img}>
-              <img
-                srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                img={`${item.img}?w=248&fit=crop&auto=format`}
+            <img
+                srcSet={`${item.img} 2x`} // Using Base64 image for high resolution
+                src={item.img} // Using Base64 image
                 alt={item.title}
                 loading="lazy"
-              />
+                />
+
               <ImageListItemBar
                 title={item.title}
                 subtitle={item.author}
