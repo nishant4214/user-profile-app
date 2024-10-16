@@ -18,23 +18,23 @@ import Experience from './Expericence';
 import Education from './Education'
 import Contact from './Contact';
 import DownloadResumeIcon from './DownloadResume';
-
+import Projects from './Projects';
+import Courses from './Courses';
+import fundamentalsPng from './images/fundamentals.png';
+import databasesPng from './images/databases.png';
 const UserProfile = () => {
   const [userData, setUserData] = useState({
     name: 'Nishant Pande',
     title : 'Frontend Developer',
     email: 'nishant.pande@esds.co.in',
-    company : 'ESDS Software Solutions',
+    company : 'ESDS Software Solutions PVT. LTD',
     phone: '+91 708 385 1078',
     whatsApp : "https://wa.me/7083851078",
     linkedIn : "https://www.linkedin.com/in/nishant-pande-50220068/",
     instagram : "https://www.instagram.com/nish_4214/profilecard/?igsh=aWM5MGcxd3g4bXNl",
     githubId : "https://github.com/nishant4214",
-    address: '7, Lok Kalyan Marg (7LKM), formerly 7, Race Course Road, Lok Kalyan Marg, New Delhi',
-    bio: 'Nishant is a passionate React developer with over 3 years of experience in building dynamic and responsive web applications. With a strong foundation in JavaScript and a keen eye for user experience, he specializes in creating seamless interfaces and engaging user interactions.'
-    +'Having worked on various projects ranging from small startups to large-scale enterprise applications, Nishant is adept at collaborating with cross-functional teams to deliver high-quality solutions. He is proficient in modern front-end technologies, including React, Redux, and Tailwind CSS, and is always eager to learn about the latest trends and best practices in the web development ecosystem.'
-    +'In addition to his technical skills, Nishant values clean code and performance optimization, ensuring that applications are not only functional but also efficient and maintainable. He enjoys tackling challenges and solving complex problems, making him a reliable asset in any development team.'
-    +'Outside of coding, Nishant is an avid contributor to the developer community, participating in meetups and open-source projects. He also loves sharing knowledge through blogs and tutorials, helping others navigate the world of React development.',
+    address: 'Pathardi Phata, Nashik 422010',
+    bio: 'Dynamic and results-oriented .NET Developer with 2.9 years of experience in designing, developing, and deploying high-performance applications on the .NET framework. Proficient in C#, ASP.NET (MVC and Core), SQL Server, and JavaScript/jQuery, with a strong understanding of object-oriented programming principles. Skilled in developing scalable solutions leveraging .NET technologies and cloud platforms such as Azure. Adept at collaborating with cross-functional teams to analyze requirements, troubleshoot issues, and deliver innovative software solutions that meet business objectives.',
     experience : [
       {
         company : "SAMVIT INFOTECH PVT. LTD",
@@ -93,8 +93,56 @@ const UserProfile = () => {
         educationType : "Full time"	
       }
     ],
-    frontendSkills : "ReactJS, Html, CSS, Jquery, Bootstrap 5, AJAX",
-    backendSkills : "Rest API, DOT NET Core, Microservices, SQL, PostgreSql",
+    projects : [
+      {
+        name : "WLA (White Label ATM)",
+        technologiesUsed : "Dot Net Core, MVC, HTML, CSS, JQuery, AJAX, C#, Rest API, NGINX, IIS, SQL, PostgreSQL",
+        roleAndResponsibility : "Developed Web Portal using .NET Core MVC."
+          +" Developed REST API, Background Services using .Net Core."
+          +" Integrated third party API’s from E-sign, KYC verification, Bank account verification and SMS services etc."
+          +" Responsible for analyzing and optimizing stored procedures."
+          +" Conducted requirement gathering and analysis, ensuring solutions met business objectives and synchronized delivery dates."
+          +" Designed and developed APIs for WLA mobile applications (Android & IOS), contributing to project success and client satisfaction."
+          +" Deployment on IIS server and configured NGINX for load balancing."
+          +" Responsible for patching activity and continuous analysis on background services."
+      },
+      {
+        name : "DUX PRQ",
+        technologiesUsed : "Dot Net Core, MVC, HTML, CSS, JQuery, AJAX, C#, Rest API, NGINX, IIS, PostgreSQL",
+        roleAndResponsibility : "Developed Web Portal using .NET Core MVC."
+          +" Developed REST API, Background Services using .Net Core."
+          +" Worker Service for bulk QR Code PDF generation for stick on soundboxes." 
+          +" Individually handled, deployed the project on production." 
+          +" Responsible for patching activity and continuous analysis on background services."
+      },
+      {
+        name : "SMART EMI",
+        technologiesUsed : "Dot Net Core, MVC, HTML, CSS, JQuery, AJAX, C#, Rest API, NGINX, IIS, PostgreSQL",
+        roleAndResponsibility : "Web Application and API development"
+      },
+      {
+        name : "FA TRACKER (FIELD ASSET TRACKER)",
+        technologiesUsed : "Dot Net, MVC, HTML, CSS, JQuery, AJAX, C#, IIS, SQL",
+        roleAndResponsibility : "Production Support for ASP.NET application."
+          +" Database migration to different server."
+          +" New change requests has been fulfilled within delivery dates"
+          +" Critical issues has been resolved"
+      }
+    ],
+    courses : [ 
+      {
+        img: fundamentalsPng, // Corrected the path for images in the public folder
+        title: 'Programming Foundations Databases',
+        author: 'LinkedIn',
+      },
+      {
+        img: databasesPng,
+        title: 'Programming Foundations: Fundamentals',
+        author: 'LinkedIn',
+      }
+    ],
+    frontendSkills : "ReactJS, Html, CSS, JQuery, Bootstrap 5, AJAX",
+    backendSkills : "Rest API, DOT NET Core, C#, Microservices, SQL, PostgreSql",
     otherSkills : "NGINX, IIS, GIT, Azure"
   });
   const sortedExperiences = userData.experience.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
@@ -150,10 +198,7 @@ const UserProfile = () => {
             <Typography variant="h7" align="center" gutterBottom>
               Other : {userData.otherSkills}
             </Typography>   
-            <br/>
-            <Typography variant="h7" align="left" gutterBottom>
-              Resume <DownloadResumeIcon/>
-            </Typography>          
+            <br/>        
           </Grid2>
           <Grid2  size={12}  spacing={2}>
             <Box display="flex" justifyContent="center" spacing={2}>
@@ -187,9 +232,16 @@ const UserProfile = () => {
       <br/>
       <Experience sortedExperiences={sortedExperiences}/>
       <br/>
+      <Projects projects={userData.projects}/>
+      <br/>
+      <Courses Courses={userData.courses}/>
+      <br/>
+      <DownloadResumeIcon/>
+      <br/>
       <Education sortedEducations={sortedEducations}/>
       <br/>
       <Contact Contact={userData}/>
+
     </Container>
   );
 };

@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import FileDownloadDoneRoundedIcon from '@mui/icons-material/FileDownloadDoneRounded';
 import DownloadIcon from '@mui/icons-material/Download';
+import {
+    Paper,
+    Box,Typography
+  } from '@mui/material';
 
 function DownloadResumeIcon() {
     const [isDownloaded, setIsDownloaded] = useState(false);
@@ -27,15 +31,22 @@ function DownloadResumeIcon() {
         }, 3000); // Reset after 3 seconds
     };
 
-    return (
-        <a 
-            href={resumeUrl} 
-            onClick={handleDownload} 
-            style={{ cursor: 'pointer', textDecoration: 'none' }}
-            aria-label="Download Resume"
-        >
-            {isDownloaded ? <FileDownloadDoneRoundedIcon /> : <DownloadIcon />}
-        </a>
+    return (<>
+        <Paper elevation={3} style={{ padding: '20px' }}>
+            <Typography color='blue' variant="h4" align="left" gutterBottom>
+                Resume
+            </Typography>
+            <Box display="flex" flexDirection="column" alignItems="center">                 
+                <a 
+                    href={resumeUrl} 
+                    onClick={handleDownload} 
+                    style={{ cursor: 'pointer', textDecoration: 'none' }}
+                    aria-label="Download Resume"
+                >
+                    {isDownloaded ? <FileDownloadDoneRoundedIcon sx={{ fontSize: 40 }}/> : <DownloadIcon sx={{ fontSize: 40 }}/>}
+                </a>
+            </Box>
+        </Paper></>
     );
 }
 
