@@ -56,7 +56,12 @@ export default function Projects({projects}) {
 
   return (
     <>
-    <Paper elevation={3} style={{ padding: '20px' }}>
+        <Paper 
+            style={{
+            backgroundColor: 'transparent',
+            padding: '20px'
+            }}
+            elevation={2}>
         <Typography color='blue' variant="h4" align="left" gutterBottom>
             Projects
         </Typography>
@@ -65,7 +70,7 @@ export default function Projects({projects}) {
           <Accordion 
               expanded={expanded === 'panel' + (index + 1)} 
               onChange={handleChange('panel' + (index + 1))} 
-              style={{ width: '100%' }} 
+              style={{ width: '100%', backgroundColor:'transparent' }} 
               key={index}
             >
             <AccordionSummary 

@@ -39,22 +39,28 @@ const UserProfile = () => {
 
   return (
     <Container maxWidth="lg">
-      <Paper elevation={3} style={{ padding: '20px' }}>
-        <Box display="flex" flexDirection="column" alignItems="center">
+      <Paper 
+            style={{
+            backgroundColor: 'transparent',
+            padding: '20px'
+            }}
+            elevation={2}>
+        <Box className='paper' display="flex" flexDirection="column" alignItems="center">
+        <br/>
           <Avatar
             sx={{ width: 200, height: 200, mb: 2 }}
             src={profilePic}
             alt={userData.name}
           />
-          
-          <Typography variant="h4" align="center" gutterBottom>
+          <Typography variant="h3" align="center" gutterBottom>
             {userData.name}
           </Typography>
-          <Typography variant="h7" align="center" gutterBottom>
+          <Typography variant="h6" align="center" gutterBottom>
             {userData.title} @{userData.company}
           </Typography>
           <br/>
         </Box>  
+        <br/>
         <Grid2 container spacing={2}>
           <Grid2  size={12}  spacing={2}>
             <Typography color='blue' variant="h4" align="left" gutterBottom>

@@ -35,7 +35,12 @@ function Experience({sortedExperiences}){
 
 
     return ( 
-        <Paper elevation={3} style={{ padding: '20px' }}>
+        <Paper 
+            style={{
+            backgroundColor: 'transparent',
+            padding: '20px'
+            }}
+            elevation={2}>
             <Grid2 container spacing={2}>
                 <Grid2>
                     <Typography color='blue' variant="h4" align="left" gutterBottom>

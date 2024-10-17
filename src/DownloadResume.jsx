@@ -31,7 +31,12 @@ function DownloadResumeIcon({resumeBase64File}) {
     };
 
     return (
-        <Paper elevation={3} style={{ padding: '20px' }}>
+        <Paper 
+             style={{
+            backgroundColor: 'transparent',
+            padding: '20px'
+            }}
+            elevation={2}>
             <Typography color='blue' variant="h4" align="left" gutterBottom>
                 Resume
             </Typography>
