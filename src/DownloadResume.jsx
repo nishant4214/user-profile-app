@@ -20,7 +20,7 @@ function DownloadResumeIcon({resumeBase64File}) {
         const blob = new Blob([byteArray], { type: 'application/pdf' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.download = 'sample.pdf'; // Specify the file name
+        link.download = 'Resume.pdf'; // Specify the file name
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
