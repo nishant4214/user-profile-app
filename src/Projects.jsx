@@ -55,7 +55,7 @@ export default function Projects({projects}) {
   };
 
   return (
-    <div>
+    <>
     <Paper elevation={3} style={{ padding: '20px' }}>
         <Typography color='blue' variant="h4" align="left" gutterBottom>
             Projects
@@ -89,6 +89,6 @@ export default function Projects({projects}) {
         ))}
         </Box>
       </Paper>
-    </div>
+    </>
   );
 }
