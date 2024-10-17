@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/user-profile-app/static/css/main.61962777.css",
-    "main.js": "/user-profile-app/static/js/main.b3f3c280.js",
+    "main.js": "/user-profile-app/static/js/main.68ff4a4b.js",
     "static/media/Nishant Pande.jpg": "/user-profile-app/static/media/Nishant Pande.912409a75f385ddcfc4e.jpg",
     "index.html": "/user-profile-app/index.html",
     "main.61962777.css.map": "/user-profile-app/static/css/main.61962777.css.map",
-    "main.b3f3c280.js.map": "/user-profile-app/static/js/main.b3f3c280.js.map"
+    "main.68ff4a4b.js.map": "/user-profile-app/static/js/main.68ff4a4b.js.map"
   },
   "entrypoints": [
     "static/css/main.61962777.css",
-    "static/js/main.b3f3c280.js"
+    "static/js/main.68ff4a4b.js"
   ]
 }
