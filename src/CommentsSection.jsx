@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './CommentsSection.css'
 import { Paper, Box, Typography } from '@mui/material';
@@ -7,16 +7,20 @@ const CommentsSection = ({ projectId }) => {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState('');
 
-  const fetchComments = async () => {
-    const response = await axios.get(`https://profile-api-nishant.netlify.app/.netlify/functions/Comments?projectId=${projectId}`);
-    setComments(response.data);
-  };
+  const fetchComments = useCallback(async () => {
+    try {
+      const response = await axios.get(`https://profile-api-nishant.netlify.app/.netlify/functions/Comments?projectId=${projectId}`);
+      setComments(response.data);
+    } catch (error) {
+      console.error('Error fetching comments:', error);
+    }
+  }, [projectId]);
 
   useEffect(() => {
     // Fetch comments when the component mounts
   
     fetchComments();
-  }, [projectId]);
+  }, [fetchComments]);
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
 

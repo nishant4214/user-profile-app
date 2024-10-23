@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
     Typography,
     Paper,
-    Grid2,
-    Link
+    Grid2
 } from '@mui/material';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -27,7 +25,7 @@ function Contact({Contact}) {
         }
     };
 
-    const incrementVisitorCount = async () => {
+    const incrementVisitorCount = useCallback(async () => {
         try {
             const response = await fetch('https://profile-api-nishant.netlify.app/.netlify/functions/incrementVisitorCount', {
                 method: 'POST',
@@ -43,7 +41,7 @@ function Contact({Contact}) {
         } catch (error) {
             console.error('Failed to increment visitor count:', error);
         }
-    };
+    },[Contact]);
 
     useEffect(() => {
         fetchVisitorCount(); // Get the current count when the component mounts
@@ -54,7 +52,7 @@ function Contact({Contact}) {
             incrementVisitorCount(); 
             sessionStorage.setItem('hasIncremented', 'true');
         }
-    }, [])
+    }, [incrementVisitorCount])
 
     return (
         <Paper 
@@ -75,11 +73,6 @@ function Contact({Contact}) {
             </Typography>
             <br /><br />
             <Grid2 container spacing={2}>
-                <Grid2 item xs={4} md={4}>
-                    <a href={Contact.instagram} target="_blank" rel="noopener noreferrer">
-                        <InstagramIcon fontSize='large' />
-                    </a>
-                </Grid2>
                 <Grid2 item xs={4} md={4}>
                     <a href={`mailto:${Contact.email}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                         <EmailIcon fontSize='large' style={{ marginRight: 8, cursor: 'pointer' }} />
