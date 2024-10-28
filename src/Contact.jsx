@@ -4,10 +4,10 @@ import {
     Paper,
     Grid2
 } from '@mui/material';
-import EmailIcon from '@mui/icons-material/Email';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import EmailIcon from './images/Gmail.png'; 
+import LinkedInIcon from './images/LinkedIn.png'; 
+import GitHubIcon from './images/GitHub.png'; 
+import WhatsAppIcon from './images/WhatsAppIcon.png';
 
 function Contact({Contact}) {
     const [visitorCount, setVisitorCount] = useState(0);
@@ -75,27 +75,39 @@ function Contact({Contact}) {
             <Grid2 container spacing={2}>
                 <Grid2 item xs={4} md={4}>
                     <a href={`mailto:${Contact.email}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <EmailIcon fontSize='large' style={{ marginRight: 8, cursor: 'pointer' }} />
+                        <img src={EmailIcon} alt="LinkedIn" 
+                            height={30}
+                            width={30}
+                        />
                     </a>
                 </Grid2>
                 <Grid2 item xs={4} md={4}>
                     <a href={Contact.linkedIn} target="_blank" rel="noopener noreferrer">
-                        <LinkedInIcon fontSize='large' />
-                    </a>
+                        <img src={LinkedInIcon} alt="LinkedIn" 
+                            height={30}
+                            width={30}
+                        />
+                        </a>
                 </Grid2>
                 <Grid2 item xs={4} md={4}>
                     <a href={Contact.githubId} target="_blank" rel="noopener noreferrer">
-                        <GitHubIcon fontSize='large' />
-                    </a>
+                        <img src={GitHubIcon} alt="LinkedIn" 
+                            height={30}
+                            width={30}
+                        />
+                        </a>
                 </Grid2>
                 <Grid2 item xs={4} md={4}>
                     <a href={Contact.whatsApp} target="_blank" rel="noopener noreferrer">
-                        <WhatsAppIcon fontSize='large' />
-                    </a>
+                        <img src={WhatsAppIcon} alt="LinkedIn" 
+                            height={30}
+                            width={30}
+                        />
+                        </a>
                 </Grid2>
-                <Grid2 item xs={4} md={4}>
+                {/* <Grid2 item xs={4} md={4}>
                     <h7>Visitor Count: {visitorCount}</h7>
-                </Grid2>
+                </Grid2> */}
             </Grid2>
         </Paper>
     );
