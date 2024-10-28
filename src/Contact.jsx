@@ -75,7 +75,7 @@ function Contact({Contact}) {
             <Grid2 container spacing={2}>
                 <Grid2 item xs={4} md={4}>
                     <a href={`mailto:${Contact.email}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <img src={EmailIcon} alt="LinkedIn" 
+                        <img src={EmailIcon} alt="Email" 
                             height={30}
                             width={30}
                         />
@@ -91,7 +91,7 @@ function Contact({Contact}) {
                 </Grid2>
                 <Grid2 item xs={4} md={4}>
                     <a href={Contact.githubId} target="_blank" rel="noopener noreferrer">
-                        <img src={GitHubIcon} alt="LinkedIn" 
+                        <img src={GitHubIcon} alt="GitHub" 
                             height={30}
                             width={30}
                         />
@@ -99,7 +99,7 @@ function Contact({Contact}) {
                 </Grid2>
                 <Grid2 item xs={4} md={4}>
                     <a href={Contact.whatsApp} target="_blank" rel="noopener noreferrer">
-                        <img src={WhatsAppIcon} alt="LinkedIn" 
+                        <img src={WhatsAppIcon} alt="WhatsApp" 
                             height={30}
                             width={30}
                         />

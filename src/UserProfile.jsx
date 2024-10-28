@@ -22,6 +22,8 @@ import DownloadResumeIcon from './DownloadResume';
 import Projects from './Projects';
 import Courses from './Courses';
 import CommentsSection from './CommentsSection';
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import { deepPurple } from '@mui/material/colors';
 
 const UserProfile = () => {
   const [userData, setUserData] = useState(profileJson);
@@ -38,6 +40,21 @@ const UserProfile = () => {
     setIsEditing(!isEditing);
   };
 
+  
+const StyledAvatar = styled(Avatar)`
+    ${({ theme }) => `
+    cursor: pointer;
+    background-color: ${theme.palette.primary.main};
+    transition: ${theme.transitions.create(['background-color', 'transform'], {
+      duration: theme.transitions.duration.standard,
+    })};
+    &:hover {
+      background-color: ${theme.palette.secondary.main};
+      transform: scale(1.3);
+    }
+    `}
+`;
+
   return (
     <Container maxWidth="lg">
       <Paper 
@@ -48,7 +65,7 @@ const UserProfile = () => {
             elevation={2}>
         <Box className='paper' display="flex" flexDirection="column" alignItems="center">
         <br/>
-          <Avatar
+          <StyledAvatar
             sx={{ width: 200, height: 200, mb: 2 }}
             src={profilePic}
             alt={userData.name}
