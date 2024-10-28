@@ -41,7 +41,7 @@ function Contact({Contact}) {
         } catch (error) {
             console.error('Failed to increment visitor count:', error);
         }
-    },[Contact]);
+    },[]);
 
     useEffect(() => {
         fetchVisitorCount(); // Get the current count when the component mounts

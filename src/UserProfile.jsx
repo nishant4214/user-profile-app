@@ -22,7 +22,6 @@ import DownloadResumeIcon from './DownloadResume';
 import Projects from './Projects';
 import Courses from './Courses';
 import CommentsSection from './CommentsSection';
-import ButtonAppBar from './MenuBar';
 
 const UserProfile = () => {
   const [userData, setUserData] = useState(profileJson);
@@ -41,7 +40,6 @@ const UserProfile = () => {
 
   return (
     <Container maxWidth="lg">
-      <ButtonAppBar/>
       <Paper 
             style={{
             backgroundColor: 'transparent',
