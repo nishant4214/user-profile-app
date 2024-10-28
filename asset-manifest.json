@@ -1,14 +1,18 @@
 {
   "files": {
-    "main.css": "/user-profile-app/static/css/main.118366cd.css",
-    "main.js": "/user-profile-app/static/js/main.055f4c93.js",
+    "main.css": "/user-profile-app/static/css/main.871f0703.css",
+    "main.js": "/user-profile-app/static/js/main.b1e9a6ec.js",
     "static/media/Nishant Pande.jpg": "/user-profile-app/static/media/Nishant Pande.912409a75f385ddcfc4e.jpg",
+    "static/media/WhatsAppIcon.png": "/user-profile-app/static/media/WhatsAppIcon.85555ee1f51405a7345a.png",
+    "static/media/LinkedIn.png": "/user-profile-app/static/media/LinkedIn.378e99dab95252b6d701.png",
+    "static/media/GitHub.png": "/user-profile-app/static/media/GitHub.ddf4326123de8dcf7bd0.png",
+    "static/media/Gmail.png": "/user-profile-app/static/media/Gmail.22cb7920a34e365fc62c.png",
     "index.html": "/user-profile-app/index.html",
-    "main.118366cd.css.map": "/user-profile-app/static/css/main.118366cd.css.map",
-    "main.055f4c93.js.map": "/user-profile-app/static/js/main.055f4c93.js.map"
+    "main.871f0703.css.map": "/user-profile-app/static/css/main.871f0703.css.map",
+    "main.b1e9a6ec.js.map": "/user-profile-app/static/js/main.b1e9a6ec.js.map"
   },
   "entrypoints": [
-    "static/css/main.118366cd.css",
-    "static/js/main.055f4c93.js"
+    "static/css/main.871f0703.css",
+    "static/js/main.b1e9a6ec.js"
   ]
 }
